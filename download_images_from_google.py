@@ -17,7 +17,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument('-s', '--search_query', help='Search Query', required=True)
 ap.add_argument('-n', '--pages', default=10, type=check_positive,
                 help='Number of Pages to Loop Through', required=True)
-ap.add_argument('p', '--save_folder', required=True, help='path to save iamges')
+ap.add_argument('-p', '--save_folder', required=True, help='path to save images')
 args = vars(ap.parse_args())
 
 search_term = args['search_query']
