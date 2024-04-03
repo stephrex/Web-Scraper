@@ -17,6 +17,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument('-s', '--search_query', help='Search Query', required=True)
 ap.add_argument('-n', '--pages', default=10, type=check_positive,
                 help='Number of Pages to Loop Through', required=True)
+ap.add_argument('p', '--save_folder', required=True, help='path to save iamges')
 args = vars(ap.parse_args())
 
 search_term = args['search_query']
@@ -37,7 +38,7 @@ for page in range(num_pages):
             image_data = {'src': src, 'alt': alt}
             results.append(image_data)
 
-    save_folder = 'scraped_images'
+    save_folder = args['save_folder']
     os.makedirs(save_folder, exist_ok=True)
 
     for idx, image in enumerate(results):
